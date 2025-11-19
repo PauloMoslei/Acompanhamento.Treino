@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Aluno</title>
+    <link rel="stylesheet" href="{% static 'alunos/exclusao.css' %}">
+</head>
+<body>
+    <h1>Excluir Aluno</h1>
+    <p>Tem certeza que deseja excluir o aluno <strong>{{ aluno.nome }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-excluir">Sim, excluir</button>
+        <a href="{% url 'lista_alunos' %}" class="btn-cancelar">Cancelar</a>
+    </form>
+</body>
+</html>

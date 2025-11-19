@@ -1,47 +1,39 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Aluno
-from fichas.models import FichaTreino # type: ignore
+from .forms import AlunoForm
 
-@login_required
 def lista_alunos(request):
-    """
-    Exibe a lista de alunos (visão do instrutor).
-    """
-    if not request.user.is_staff:  # Apenas instrutores podem ver todos os alunos
-        return render(request, 'acesso_negado.html')
+    alunos = Aluno.objects.all()
+    return render(request, 'alunos/lista.html', {'alunos': alunos})
 
-    alunos = Aluno.objects.all().order_by('nome')
-    return render(request, 'alunos/lista_alunos.html', {'alunos': alunos})
+def detalhe_aluno(request, pk):
+    aluno = get_object_or_404(Aluno, pk=pk)
+    return render(request, 'alunos/detalhe.html', {'aluno': aluno})
 
+def criar_aluno(request):
+    if request.method == 'POST':
+        form = AlunoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_alunos')
+    else:
+        form = AlunoForm()
+    return render(request, 'alunos/form.html', {'form': form})
 
-@login_required
-def detalhe_aluno(request, aluno_id):
-    """
-    Exibe os detalhes de um aluno e suas fichas de treino.
-    """
-    aluno = get_object_or_404(Aluno, id=aluno_id)
+def editar_aluno(request, pk):
+    aluno = get_object_or_404(Aluno, pk=pk)
+    if request.method == 'POST':
+        form = AlunoForm(request.POST, instance=aluno)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_alunos')
+    else:
+        form = AlunoForm(instance=aluno)
+    return render(request, 'alunos/form.html', {'form': form})
 
-    # Se o usuário logado for aluno, só pode ver sua própria ficha
-    if not request.user.is_staff and aluno.user != request.user:
-        return render(request, 'acesso_negado.html')
-
-    fichas = FichaTreino.objects.filter(aluno=aluno)
-    return render(request, 'alunos/detalhe_aluno.html', {
-        'aluno': aluno,
-        'fichas': fichas
-    })
-
-
-@login_required
-def minha_ficha(request):
-    """
-    Exibe a ficha de treino do aluno logado.
-    """
-    aluno = get_object_or_404(Aluno, user=request.user)
-    fichas = FichaTreino.objects.filter(aluno=aluno)
-
-    return render(request, 'alunos/minha_ficha.html', {
-        'aluno': aluno,
-        'fichas': fichas
-    })
+def excluir_aluno(request, pk):
+    aluno = get_object_or_404(Aluno, pk=pk)
+    if request.method == 'POST':
+        aluno.delete()
+        return redirect('lista_alunos')
+    return render(request, 'alunos/exclusao.html', {'aluno': aluno})

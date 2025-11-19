@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alunos</title>
+    <link rel="stylesheet" href="{% static 'alunos/lista.css' %}">
+</head>
+<body>
+    <h1>Alunos</h1>
+    <a href="{% url 'criar_aluno' %}" class="btn-novo">Novo Aluno</a>
+    <table class="tabela-alunos">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Objetivo</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.idade }}</td>
+                <td>{{ aluno.objetivo }}</td>
+                <td>
+                    <a href="{% url 'detalhe_aluno' aluno.pk %}">Detalhe</a> |
+                    <a href="{% url 'editar_aluno' aluno.pk %}">Editar</a> |
+                    <a href="{% url 'excluir_aluno' aluno.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhum aluno cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Instrutores</title>
+    <link rel="stylesheet" href="{% static 'instrutores/lista.css' %}">
+</head>
+<body>
+    <h1>Instrutores</h1>
+    <a href="{% url 'criar_instrutor' %}" class="btn-novo">Novo Instrutor</a>
+    <table class="tabela-instrutores">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Especialidade</th>
+                <th>Telefone</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for instrutor in instrutores %}
+            <tr>
+                <td>{{ instrutor.nome }}</td>
+                <td>{{ instrutor.especialidade }}</td>
+                <td>{{ instrutor.telefone }}</td>
+                <td>{{ instrutor.email }}</td>
+                <td>
+                    <a href="{% url 'detalhe_instrutor' instrutor.pk %}">Detalhe</a> |
+                    <a href="{% url 'editar_instrutor' instrutor.pk %}">Editar</a> |
+                    <a href="{% url 'excluir_instrutor' instrutor.pk %}">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum instrutor cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

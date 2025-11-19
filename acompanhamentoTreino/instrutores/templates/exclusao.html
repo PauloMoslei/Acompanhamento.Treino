@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Excluir Instrutor</title>
+    <link rel="stylesheet" href="{% static 'instrutores/exclusao.css' %}">
+</head>
+<body>
+    <h1>Excluir Instrutor</h1>
+    <p>Tem certeza que deseja excluir o instrutor <strong>{{ instrutor.nome }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn-excluir">Sim, excluir</button>
+        <a href="{% url 'lista_instrutores' %}" class="btn-cancelar">Cancelar</a>
+    </form>
+</body>
+</html>

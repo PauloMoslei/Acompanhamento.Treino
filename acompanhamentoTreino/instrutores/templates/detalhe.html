@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhe do Instrutor</title>
+    <link rel="stylesheet" href="{% static 'instrutores/detalhe.css' %}">
+</head>
+<body>
+    <h1>Detalhe do Instrutor</h1>
+    <p><strong>Nome:</strong> {{ instrutor.nome }}</p>
+    <p><strong>Especialidade:</strong> {{ instrutor.especialidade }}</p>
+    <p><strong>Telefone:</strong> {{ instrutor.telefone }}</p>
+    <p><strong>Email:</strong> {{ instrutor.email }}</p>
+    <p><strong>Observações:</strong> {{ instrutor.observacoes }}</p>
+    <a href="{% url 'editar_instrutor' instrutor.pk %}" class="btn-editar">Editar</a>
+    <a href="{% url 'lista_instrutores' %}" class="btn-voltar">Voltar</a>
+</body>
+</html>

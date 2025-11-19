@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% if form.instance.pk %}Editar{% else %}Novo{% endif %} Aluno</title>
+    <link rel="stylesheet" href="{% static 'alunos/form.css' %}">
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Editar{% else %}Novo{% endif %} Aluno</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-salvar">Salvar</button>
+        <a href="{% url 'lista_alunos' %}" class="btn-cancelar">Cancelar</a>
+    </form>
+</body>
+</html>

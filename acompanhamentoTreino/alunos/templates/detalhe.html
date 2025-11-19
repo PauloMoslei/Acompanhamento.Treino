@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhe do Aluno</title>
+    <link rel="stylesheet" href="{% static 'alunos/detalhe.css' %}">
+</head>
+<body>
+    <h1>Detalhe do Aluno</h1>
+    <p><strong>Nome:</strong> {{ aluno.nome }}</p>
+    <p><strong>Idade:</strong> {{ aluno.idade }}</p>
+    <p><strong>Objetivo:</strong> {{ aluno.objetivo }}</p>
+    <p><strong>Telefone:</strong> {{ aluno.telefone }}</p>
+    <p><strong>Email:</strong> {{ aluno.email }}</p>
+    <a href="{% url 'editar_aluno' aluno.pk %}" class="btn-editar">Editar</a>
+    <a href="{% url 'lista_alunos' %}" class="btn-voltar">Voltar</a>
+</body>
+</html>
