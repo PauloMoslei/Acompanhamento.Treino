@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f2f8;
+}
+
+/* CONTAINER */
+.lista-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    animation: fadeIn 0.4s ease;
+}
+
+/* HEADER */
+.lista-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.lista-header h1 {
+    font-size: 28px;
+    color: #4b306a;
+    font-weight: 700;
+}
+
+.btn-novo {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(155,89,182,0.25);
+    transition: 0.3s ease;
+}
+
+.btn-novo:hover {
+    background: linear-gradient(135deg, #8e44ad, #732d91);
+    transform: translateY(-2px);
+}
+
+/* TABELA */
+.tabela-alunos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabela-alunos thead {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+}
+
+.tabela-alunos th,
+.tabela-alunos td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #e3e0eb;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.tabela-alunos tr:hover {
+    background: #f7f3fc;
+}
+
+/* AÇÕES */
+.acoes a {
+    margin-right: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #8e44ad;
+    transition: 0.25s;
+}
+
+.acoes a:hover {
+    color: #5b2c82;
+}
+
+.acoes .excluir {
+    color: #e67e22;
+}
+
+.acoes .excluir:hover {
+    color: #d35400;
+}
+
+/* RESPONSIVO */
+@media (max-width: 700px) {
+    .lista-header {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .tabela-alunos th, 
+    .tabela-alunos td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
