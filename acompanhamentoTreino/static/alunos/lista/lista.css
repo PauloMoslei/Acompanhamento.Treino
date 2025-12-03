@@ -1,132 +1,53 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
-}
-
+/* Espaçamento geral do corpo da página */
 body {
-    background: #f0f2f5;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6; /* aumenta o espaçamento entre linhas */
 }
 
-/* CONTAINER */
-.lista-container {
-    max-width: 1050px;
-    margin: 50px auto;
-    padding: 35px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-    animation: fadeIn 0.4s ease;
+/* Título da página */
+h1 {
+    margin-bottom: 20px;
 }
 
-/* HEADER */
-.lista-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.lista-header h1 {
-    font-size: 28px;
-    color: #2c3e50;
-    font-weight: 700;
-}
-
-/* BOTÃO NOVO */
+/* Botão "Novo Aluno" */
 .btn-novo {
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #2196F3, #1976D2);
-    color: #fff;
+    display: inline-block;
+    margin-bottom: 20px; /* espaçamento abaixo do botão */
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    transition: 0.25s ease;
-    box-shadow: 0 4px 12px rgba(33,150,243,0.25);
+    border-radius: 5px;
 }
 
-.btn-novo:hover {
-    background: linear-gradient(135deg, #1976D2, #0d47a1);
-    transform: translateY(-2px);
-}
-
-/* TABELA */
+/* Tabela */
 .tabela-alunos {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    overflow: hidden;
-    border-radius: 10px;
+    border-collapse: separate; /* permite espaçamento entre células */
+    border-spacing: 0 10px; /* espaçamento vertical entre linhas */
 }
 
-.tabela-alunos thead {
-    background: linear-gradient(135deg, #2196F3, #1976D2);
-    color: white;
-}
-
-.tabela-alunos th,
-.tabela-alunos td {
-    padding: 14px;
+/* Cabeçalho da tabela */
+.tabela-alunos th {
+    background-color: #f2f2f2;
+    padding: 12px;
     text-align: left;
-    font-size: 15px;
-    border-bottom: 1px solid #e3e7ee;
 }
 
-.tabela-alunos tr {
-    transition: 0.2s;
+/* Células da tabela */
+.tabela-alunos td {
+    padding: 12px;
+    background-color: #fafafa;
 }
 
-.tabela-alunos tr:hover {
-    background: #f4faff;
-}
-
-/* AÇÕES */
-.acoes a {
-    margin-right: 12px;
+/* Links de ação */
+.tabela-alunos td a {
+    margin-right: 10px; /* espaçamento entre links */
     text-decoration: none;
-    font-weight: 600;
-    color: #2196F3;
-    transition: 0.2s ease;
+    color: #007BFF;
 }
 
-.acoes a:hover {
-    color: #0d47a1;
-}
-
-/* AÇÃO EXCLUIR */
-.acoes .excluir {
-    color: #d32f2f;
-}
-
-.acoes .excluir:hover {
-    color: #b71c1c;
-}
-
-/* RESPONSIVO */
-@media (max-width: 700px) {
-
-    .lista-header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .tabela-alunos th, 
-    .tabela-alunos td {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .btn-novo {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* ANIMAÇÃO */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.tabela-alunos td a:hover {
+    text-decoration: underline;
 }

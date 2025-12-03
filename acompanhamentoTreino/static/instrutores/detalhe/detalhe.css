@@ -1,148 +1,71 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
-}
-
+/* Espaçamento geral do corpo da página */
 body {
-    background: #f4f2f8;
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    line-height: 1.8;
+    background-color: #f9f9f9;
 }
 
-/* CONTAINER */
-.detalhe-container {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    animation: fadeIn 0.4s ease;
-}
-
-/* HEADER */
-.aluno-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Título */
+h1 {
     margin-bottom: 30px;
 }
 
-.aluno-header h1 {
-    font-size: 28px;
-    color: #4b306a;
-    font-weight: 700;
-}
-
-.aluno-status {
-    padding: 8px 16px;
-    background: #8e44ad;
-    color: #fff;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    box-shadow: 0 3px 8px rgba(142,68,173,0.2);
-}
-
-/* INFO BOX */
-.info-box {
-    background: #f5f2fa;
-    border-left: 5px solid #8e44ad;
-    padding: 18px 22px;
-    margin-bottom: 30px;
-    border-radius: 6px;
-}
-
-.info-box p {
-    margin: 6px 0;
-    font-size: 15px;
-    color: #4b3b5c;
-}
-
-/* SEÇÃO FICHA */
-.ficha-section h2 {
-    font-size: 24px;
-    color: #4b306a;
-    margin-bottom: 18px;
-    font-weight: 700;
-}
-
-.ficha-dia {
-    background: #f3edfc;
-    border-left: 5px solid #9b59b6;
-    padding: 14px 20px;
-    border-radius: 6px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #4b3b5c;
-    font-weight: 600;
-}
-
-/* TABELA DE TREINO */
-.tabela-treino {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 12px;
+/* Container para os detalhes do aluno */
+.detalho-aluno {
+    background-color: #fff;
+    padding: 20px 25px;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    max-width: 600px;
 }
 
-.tabela-treino thead {
-    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+/* Cada linha do detalhe */
+.detalho-aluno p {
+    display: flex;             /* deixa rótulo e valor na mesma linha */
+    gap: 15px;                 /* espaço entre rótulo e valor */
+    margin-bottom: 15px;       /* espaço entre linhas */
+    font-size: 1.1em;
+}
+
+/* Rótulos */
+.detalho-aluno p strong {
+    min-width: 120px;          /* largura mínima para alinhar todos */
+    font-weight: bold;
+}
+
+/* Botões */
+.botao-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;                 /* espaço entre os botões */
+}
+
+.btn-editar, .btn-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.btn-editar {
+    background-color: #4CAF50; /* verde */
     color: white;
 }
 
-.tabela-treino th,
-.tabela-treino td {
-    padding: 14px;
-    text-align: left;
-    border-bottom: 1px solid #e3e0eb;
-    font-size: 15px;
-    transition: 0.2s;
+.btn-editar:hover {
+    background-color: #45a049;
 }
 
-.tabela-treino tr:hover {
-    background: #f7f3fc;
-}
-
-/* BOTÃO VOLTAR */
 .btn-voltar {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 12px 22px;
-    background: #6c5b7b;
-    color: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s ease;
-    box-shadow: 0 4px 12px rgba(108,91,123,0.25);
+    background-color: #ccc; /* cinza */
+    color: #333;
 }
 
 .btn-voltar:hover {
-    background: #59486c;
-    transform: translateY(-2px);
-}
-
-/* RESPONSIVO */
-@media (max-width: 600px) {
-    .detalhe-container {
-        padding: 20px;
-    }
-
-    .tabela-treino th, 
-    .tabela-treino td {
-        padding: 10px;
-        font-size: 13px;
-    }
-
-    .aluno-header h1 {
-        font-size: 22px;
-    }
-}
-
-/* ANIMAÇÃO */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    background-color: #aaa;
 }

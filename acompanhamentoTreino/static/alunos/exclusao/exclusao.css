@@ -1,109 +1,86 @@
+/* exclusao.css */
+
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Corpo da página */
 body {
-    background: #f0f2f5;
+    background-color: #f5f7fa;
+    color: #333;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* CONTAINER */
-.exclusao-container {
-    max-width: 600px;
-    margin: 80px auto;
-    padding: 35px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+/* Título */
+h1 {
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: #c0392b; /* vermelho suave para alertar */
     text-align: center;
-    animation: fadeIn 0.4s ease;
 }
 
-.exclusao-container h1 {
-    font-size: 28px;
-    color: #d32f2f;
-    font-weight: 700;
-    margin-bottom: 20px;
+/* Texto da confirmação */
+p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
-/* AVISO */
-.exclusao-aviso {
-    background: #ffebee;
-    border-left: 6px solid #d32f2f;
-    padding: 18px 22px;
-    font-size: 16px;
-    color: #5a5a5a;
-    margin-bottom: 30px;
-    border-radius: 6px;
-    line-height: 1.5;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.05);
+p strong {
+    color: #e74c3c; /* destaque no nome do aluno */
 }
 
-/* BOTÕES */
-.exclusao-botoes {
-    margin-top: 35px;
+/* Form */
+form {
     display: flex;
     justify-content: center;
-    gap: 22px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-/* BOTÃO CONFIRMAR */
-.btn-confirmar {
-    padding: 12px 28px;
-    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+/* Botões */
+button.btn-excluir,
+a.btn-cancelar {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1rem;
+}
+
+/* Botão excluir */
+button.btn-excluir {
+    background-color: #e74c3c;
     color: #fff;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(179, 38, 30, 0.25);
-    transition: 0.25s ease;
 }
 
-.btn-confirmar:hover {
-    background: linear-gradient(135deg, #c62828, #8e1717);
-    transform: translateY(-2px);
+button.btn-excluir:hover {
+    background-color: #c0392b;
 }
 
-/* BOTÃO CANCELAR */
-.btn-cancelar {
-    padding: 12px 28px;
-    background: #757575;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    transition: 0.25s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+/* Botão cancelar */
+a.btn-cancelar {
+    background-color: #bdc3c7;
+    color: #2c3e50;
 }
 
-.btn-cancelar:hover {
-    background: #5c5c5c;
-    transform: translateY(-2px);
-}
-
-/* ANIMAÇÃO */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* RESPONSIVO */
-@media (max-width: 500px) {
-    .exclusao-container {
-        padding: 25px;
-    }
-
-    .exclusao-botoes {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .btn-confirmar,
-    .btn-cancelar {
-        width: 100%;
-    }
+a.btn-cancelar:hover {
+    background-color: #95a5a6;
 }

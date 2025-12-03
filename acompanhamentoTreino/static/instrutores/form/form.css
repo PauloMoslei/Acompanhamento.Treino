@@ -1,146 +1,71 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", Arial, Helvetica, sans-serif;
-}
-
+/* Espaçamento geral do corpo da página */
 body {
-    background: #eef7f6;
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
 }
 
-/* CONTAINER */
-.form-container {
-    max-width: 700px;
-    margin: 60px auto;
-    padding: 35px;
-    background: #ffffff;
-    border-radius: 14px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-    animation: fadeIn 0.4s ease;
+/* Título */
+h1 {
+    margin-bottom: 25px;
 }
 
-.form-container h1 {
-    font-size: 28px;
-    color: #1f4d4f;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: 700;
+/* Formulário */
+form {
+    max-width: 500px; /* largura limitada */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* FORM GROUP */
-.form-group {
-    margin-bottom: 22px;
+/* Campos do formulário */
+form p {
+    margin-bottom: 20px; /* aumenta espaçamento entre os campos */
 }
 
-.form-group label {
+form label {
     display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #3a5656;
-    font-size: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+form input, form select, form textarea {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #b2d8d8;
-    border-radius: 8px;
-    font-size: 15px;
-    color: #2c4d4f;
-    background: #f3faf9;
-    transition: 0.25s ease;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }
 
-.form-group textarea {
-    resize: vertical;
-    min-height: 90px;
-}
-
-/* FOCUS */
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #1abc9c;
-    background: #ffffff;
-    box-shadow: 0 0 8px rgba(26,188,156,0.25);
-    outline: none;
-}
-
-/* LINHAS */
-.form-row {
-    display: flex;
-    gap: 22px;
-}
-
-.form-row .form-group {
-    flex: 1;
-}
-
-/* BOTÕES */
-.form-buttons {
-    margin-top: 35px;
-    display: flex;
-    justify-content: center;
-    gap: 22px;
-}
-
-/* SALVAR */
-.btn-salvar {
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #1abc9c, #16a085);
-    color: #fff;
+/* Botões */
+.btn-salvar, .btn-cancelar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(26,188,156,0.25);
-    transition: 0.25s ease;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-salvar {
+    background-color: #4CAF50;
+    color: white;
 }
 
 .btn-salvar:hover {
-    background: linear-gradient(135deg, #16a085, #0e6655);
-    transform: translateY(-2px);
+    background-color: #45a049;
 }
 
-/* CANCELAR */
 .btn-cancelar {
-    padding: 14px 32px;
-    background: #757575;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: 0.25s ease;
+    background-color: #f44336;
+    color: white;
 }
 
 .btn-cancelar:hover {
-    background: #555;
-    transform: translateY(-2px);
-}
-
-/* RESPONSIVO */
-@media (max-width: 600px) {
-    .form-row {
-        flex-direction: column;
-    }
-
-    .form-container {
-        padding: 25px;
-    }
-
-    .btn-salvar,
-    .btn-cancelar {
-        width: 100%;
-    }
-}
-
-/* ANIMAÇÃO */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    background-color: #da190b;
 }
